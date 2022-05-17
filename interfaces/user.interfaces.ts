@@ -1,4 +1,4 @@
-interface User {
+export interface User {
   id?: number;
   username: string;
   classe: string;
@@ -6,4 +6,6 @@ interface User {
   password: string;
 }
 
-export default User;
+export interface Payload {
+  password: string;
+}

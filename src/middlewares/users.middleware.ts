@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import User from '../../interfaces/user.interfaces';
+import { User } from '../../interfaces/user.interfaces';
 
 function validateUsername(username: string) {
   if (!username) {
