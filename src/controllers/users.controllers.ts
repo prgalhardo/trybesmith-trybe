@@ -8,7 +8,7 @@ export default class UsersController {
   public create = async (req: Request, res: Response) => {
     const user = req.body;
     const userCreated = await this.userService.create(user);
-    const token = generateToken({ id: userCreated.id, username: userCreated.username });
-    res.status(201).json(token);
+    const userToken = generateToken({ id: userCreated.id, username: userCreated.username });
+    res.status(201).json({ token: userToken });
   };
 }
