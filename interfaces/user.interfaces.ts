@@ -5,7 +5,3 @@ export interface User {
   level: number;
   password: string;
 }
-
-export interface Payload {
-  password: string;
-}

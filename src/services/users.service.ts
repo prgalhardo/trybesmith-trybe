@@ -1,6 +1,6 @@
 import connection from '../models/connection';
 import UserModel from '../models/user.model';
-import User from '../../interfaces/user.interfaces';
+import { User } from '../../interfaces/user.interfaces';
 
 export default class UserService {
   public model: UserModel;

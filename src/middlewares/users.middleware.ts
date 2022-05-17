@@ -8,7 +8,7 @@ function validateUsername(username: string) {
   if (typeof username !== 'string') {
     return ({ status: 422, message: '"username" must be a string' });
   }
-  if (username.length < 2) {
+  if (username.length > 3) {
     return ({ status: 422, message: '"username" length must be at least 3 characters long' });
   }
 }
