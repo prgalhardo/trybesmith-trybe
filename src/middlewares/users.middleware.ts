@@ -8,7 +8,7 @@ function validateUsername(username: string) {
   if (typeof username !== 'string') {
     return ({ status: 422, message: '"username" must be a string' });
   }
-  if (username.length > 3) {
+  if (username.length < 3) {
     return ({ status: 422, message: '"username" length must be at least 3 characters long' });
   }
 }
@@ -20,19 +20,19 @@ function validateClasse(classe: string) {
   if (typeof classe !== 'string') {
     return ({ status: 422, message: '"classe" must be a string' });
   }
-  if (classe.length < 2) {
+  if (classe.length < 3) {
     return ({ status: 422, message: '"classe" length must be at least 3 characters long' });
   }
 }
 
 function validateLevel(level: number) {
-  if (!level) {
+  if (level === undefined) {
     return ({ status: 400, message: '"level" is required' });
   }
   if (typeof level !== 'number') {
     return ({ status: 422, message: '"level" must be a number' });
   }
-  if (level < 1) {
+  if (level <= 0) {
     return ({ status: 422, message: '"level" must be greater than or equal to 1' });
   }
 }
@@ -44,7 +44,7 @@ function validatePassword(password: string) {
   if (typeof password !== 'string') {
     return ({ status: 422, message: '"password" must be a string' });
   }
-  if (password.length < 8) {
+  if (password.length <= 8) {
     return ({ status: 422, message: '"password" length must be at least 8 characters long' });
   }
 }
