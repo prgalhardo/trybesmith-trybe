@@ -13,8 +13,15 @@ export default class OrderService {
     this.productModel = new ProductModel(connection);
   }
 
-//   public async getAll(): Promise<Order[]> {
-//     const orders = await this.orderModel.getAll();
-//     const products = await this.productModel.getAll();
-//   }
+  public async getAll(): Promise<Order[]> {
+    const orders = await this.orderModel.getAll();
+    const products = await this.productModel.getAll();
+
+    const allOrders = orders.map((order) => {
+      const productsIds = products.filter((product) =>
+        product.orderId === order.id).map((listOfProducts) => listOfProducts.id);
+      return { ...order, productsIds };
+    });
+    return allOrders;
+  }
 }
